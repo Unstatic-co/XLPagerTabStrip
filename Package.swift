@@ -3,14 +3,20 @@ import PackageDescription
 
 let package = Package(
     name: "XLPagerTabStrip",
+    platforms: [
+        .iOS(.v9)
+    ],
     products: [
         .library(name: "XLPagerTabStrip", targets: ["XLPagerTabStrip"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/Elshad/FXPageControl.git", .branch("master")),
     ],
     targets: [
         .target(
             name: "XLPagerTabStrip",
-	    path: "Sources",
-	    exclude: [
-	    ])
+            dependencies: ["FXPageControl"],
+            path: "Sources/XLPagerTabStrip"
+        )
     ]
 )
